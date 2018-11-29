@@ -3,7 +3,7 @@ node {
         checkout scm
     }
     stage('Build Image') {
-        sh 'docker build -f Dockerfile -t sysdigcicd/cronagent .'
+        sh 'sudo docker build -f Dockerfile -t sysdigcicd/cronagent .'
     }
     stage('Push Image') {
         withCredentials([usernamePassword(credentialsId: 'docker-repository-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
