@@ -8,8 +8,8 @@ node {
     stage('Push Image') {
         withCredentials([usernamePassword(credentialsId: 'docker-repository-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
             sh '''
-                docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
-                docker push sysdigcicd/cronagent
+                sudo docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+                sudo docker push sysdigcicd/cronagent
             '''
         }
     }
