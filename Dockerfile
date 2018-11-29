@@ -9,4 +9,4 @@ RUN apt-get install -y kubectl
 RUN crontab -l | { cat; echo "05 11 * * * /root/wp-deploy.sh"; } | crontab -
 RUN crontab -l | { cat; echo "06 11 * * 1,4 /root/nginx-crashloop.sh"; } | crontab -
 COPY Dockerfile /
-ENTRYPOINT ["cron","-f"]
+ENTRYPOINT ["sshd","-D"]
