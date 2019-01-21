@@ -13,6 +13,7 @@ node {
             sh '''
                 sudo docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
                 sudo docker push ${DOCKER_REPOSITORY}
+                echo docker.io/${DOCKER_REPOSITORY} > sysdig_secure_images
             '''
         }
     }
